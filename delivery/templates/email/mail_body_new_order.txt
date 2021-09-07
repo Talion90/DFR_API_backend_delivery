@@ -1,0 +1,6 @@
+Заказ {{ suborder }}
+
+Блюда:
+{% for dish in dishes %}
+{{ dish }}
+{% endfor %}
