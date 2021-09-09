@@ -1,40 +1,51 @@
-version: "3.9"
+version: "3.7"
 
 services:
-  django:
-    build: .
-    container_name: django
-    command: python manage.py runserver 0.0.0.0:8000
+  db:
+    image: postgres:13-alpine
+    env_file:
+      - ./.env.dev
     volumes:
-      -  .:/usr/src/crud_rest/
+      - pg_data:/var/lib/postgresql/data/
+  django:
+    container_name: crud_rest
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    command: bash -c "python /usr/src/app/manage.py migrate --noinput &&
+                      python /usr/src/app/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/usr/src/app/
+    env_file:
+      - ./.env.dev
     ports:
       - "8000:8000"
-    environment:
-      - DEBUG=1
-      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1
-      - CELERY_BROKER=redis://redis:6379/0
-      - CELERY_BACKEND=redis://redis:6379/0
     depends_on:
-      - pgdb
-      - redis
+      - db
+
+  redis:
+    image: "redis:alpine"
   celery:
     build: .
     command: celery -A crud_rest worker -l INFO
     volumes:
-      - .:/usr/src/crud_rest
+      - .:/usr/src/app
+    env_file:
+      - ./.env.dev
+    depends_on:
+      - db
+      - redis
+      - django
+  dashboard:
+    build: .
+    command: celery flower --port=5566
+    ports:
+      - 5555:5555
+    env_file:
+      - ./.env.dev
     depends_on:
       - django
       - redis
-  pgdb:
-    image: postgres
-    container_name: pgdb
-    environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
-    volumes:
-      - pgdata:/var/lib/postgresql/data/
-  redis:
-    image: "redis:alpine"
+      - celery
 volumes:
-  pgdata:
+  pg_data:
