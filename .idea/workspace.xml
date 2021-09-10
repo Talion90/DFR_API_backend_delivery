@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="Add dockerfile and docker-compose file">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="add requirements">
+      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,6 +74,7 @@
       <workItem from="1631039633033" duration="1138000" />
       <workItem from="1631079793980" duration="38697000" />
       <workItem from="1631165044334" duration="2838000" />
+      <workItem from="1631299612166" duration="298000" />
     </task>
     <task id="LOCAL-00001" summary="Init project">
       <created>1631040146365</created>
@@ -89,7 +90,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631167726175</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add requirements">
+      <created>1631299658958</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1631299658958</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,6 +118,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Init project" />
     <MESSAGE value="Add dockerfile and docker-compose file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add dockerfile and docker-compose file" />
+    <MESSAGE value="add requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="add requirements" />
   </component>
 </project>
