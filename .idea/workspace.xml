@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="add requirements">
-      <change afterPath="$PROJECT_DIR$/readme.txt" afterDir="false" />
+    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="add readme">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -74,7 +75,11 @@
       <workItem from="1631039633033" duration="1138000" />
       <workItem from="1631079793980" duration="38697000" />
       <workItem from="1631165044334" duration="2838000" />
-      <workItem from="1631299612166" duration="298000" />
+      <workItem from="1631299612166" duration="327000" />
+      <workItem from="1631300510453" duration="194000" />
+      <workItem from="1631301025154" duration="264000" />
+      <workItem from="1631302546757" duration="111000" />
+      <workItem from="1631340312990" duration="1084000" />
     </task>
     <task id="LOCAL-00001" summary="Init project">
       <created>1631040146365</created>
@@ -97,7 +102,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631299658958</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="add readme">
+      <created>1631299921201</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1631299921201</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -119,6 +131,7 @@
     <MESSAGE value="Init project" />
     <MESSAGE value="Add dockerfile and docker-compose file" />
     <MESSAGE value="add requirements" />
-    <option name="LAST_COMMIT_MESSAGE" value="add requirements" />
+    <MESSAGE value="add readme" />
+    <option name="LAST_COMMIT_MESSAGE" value="add readme" />
   </component>
 </project>
