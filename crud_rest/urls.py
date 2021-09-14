@@ -4,7 +4,7 @@ from django.views.decorators.cache import never_cache
 from django.views.static import serve
 from django.conf.urls.static import static
 from django.conf import settings
-from .yasg import urlpatterns as doc_urls
+from crud_rest.yasg import urlpatterns as doc_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),

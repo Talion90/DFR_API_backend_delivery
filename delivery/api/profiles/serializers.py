@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from .models import User, Courier, CourierProfile, Customer, CustomerProfile, Restaurateur, RestaurateurProfile
+from delivery.models import User, Courier, CourierProfile, Customer, CustomerProfile, Restaurateur, RestaurateurProfile
 
 
 class UserSerializer(serializers.ModelSerializer):

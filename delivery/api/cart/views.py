@@ -3,9 +3,9 @@ from rest_framework import response, status, viewsets
 
 from django.shortcuts import get_object_or_404
 
-from .serializers import CartSerializer
-from ..models import Cart, Dish, CartDish, Customer
-from delivery.cart.utils import recalc_cart
+from delivery.api.cart.serializers import CartSerializer
+from delivery.api.cart.utils import recalc_cart
+from delivery.models import Cart, Dish, CartDish, Customer
 from delivery.permissions import IsCustomer
 
 
@@ -52,8 +52,8 @@ class CartViewSet(viewsets.ModelViewSet):
         if created:
             cart.dishes.add(cart_dish)
             recalc_cart(cart)
-            return response.Response({'detail': 'Товар добавлен в корзину'}, status=status.HTTP_200_OK)
-        return response.Response({'detail': 'Товар уже в корзине'}, status.HTTP_400_BAD_REQUEST)
+            return response.Response({'detail': 'Dish add to the cart'}, status=status.HTTP_200_OK)
+        return response.Response({'detail': 'Dish has been already in cart'}, status.HTTP_400_BAD_REQUEST)
 
     @action(
         methods=['patch'],
@@ -65,7 +65,7 @@ class CartViewSet(viewsets.ModelViewSet):
         cart_dish.quantity = int(kwargs['quantity'])
         cart_dish.save()
         recalc_cart(cart_dish.cart)
-        return response.Response(f'Изменено количество на {cart_dish.quantity}', status=status.HTTP_200_OK)
+        return response.Response(f'Quantity has been changed {cart_dish.quantity}', status=status.HTTP_200_OK)
 
     @action(
         methods=['put'],

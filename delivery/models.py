@@ -21,16 +21,16 @@ class User(AbstractUser):
         blank=True,
         default=None,
         null=True,
-        verbose_name='Тип пользователя'
+        verbose_name="User type"
     )
     phone = models.CharField(
         max_length=20,
-        verbose_name='Номер телефона'
+        verbose_name='Phone number'
     )
 
     class Meta:
-        verbose_name = 'Пользователь'
-        verbose_name_plural = 'Пользователи'
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
 
 
 class CustomerManager(UserManager):
@@ -44,8 +44,8 @@ class Customer(User):
 
     class Meta:
         proxy = True
-        verbose_name = 'Покупатель'
-        verbose_name_plural = 'Покупатели'
+        verbose_name = 'Customer'
+        verbose_name_plural = 'Customers'
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -64,36 +64,35 @@ class CustomerProfile(models.Model):
         related_name='customer_profile')
     home_address = models.CharField(
         max_length=255,
-        verbose_name='Домашний адрес',
+        verbose_name='Home address',
         null=True
     )
     card_number = models.CharField(
         max_length=20,
         unique=True,
-        verbose_name='Номер банковской карты',
+        verbose_name='Card number',
         blank=True,
         null=True
     )
     orders = models.ManyToManyField(
         'Order',
         blank=True,
-        verbose_name='Заказы покупателя',
         related_name='related_customer'
     )
 
     def __str__(self):
-        return f'Профиль покупателя {self.user.username}'
+        return f"Customer's profile {self.user.username}"
 
     class Meta:
-        verbose_name = 'Профиль покупателя'
-        verbose_name_plural = 'Профили покупателей'
+        verbose_name = 'Profile of courier'
+        verbose_name_plural = "Profile of couriers"
 
 
 class Cart(models.Model):
     owner = models.ForeignKey(
         Customer,
         null=True,
-        verbose_name='Владелец',
+        verbose_name='cart owner',
         on_delete=models.CASCADE,
         related_name='related_owner'
     )
@@ -107,17 +106,17 @@ class Cart(models.Model):
         max_digits=8,
         default=0,
         decimal_places=2,
-        verbose_name='Итого'
+        verbose_name='Total'
     )
     in_order = models.BooleanField(default=False)
     for_anonymous_user = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'Коризина {self.owner}'
+        return f"{self.owner}'s cart"
 
     class Meta:
-        verbose_name = 'Корзина'
-        verbose_name_plural = 'Корзины'
+        verbose_name = 'Cart'
+        verbose_name_plural = 'Carts'
 
 
 class CourierManager(UserManager):
@@ -131,8 +130,8 @@ class Courier(User):
 
     class Meta:
         proxy = True
-        verbose_name = 'Курьер'
-        verbose_name_plural = 'Курьеры'
+        verbose_name = 'Courier'
+        verbose_name_plural = 'Couriers'
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -149,16 +148,16 @@ class CourierProfile(models.Model):
     suborders = models.ManyToManyField(
         'SubOrder',
         related_name='related_courier_suborders',
-        verbose_name='Подзаказы',
+        verbose_name='Suborders',
         blank=True
     )
 
     def __str__(self):
-        return f'Курьер {self.user.username}'
+        return f'Courier {self.user.username}'
 
     class Meta:
-        verbose_name = 'Профиль курьера'
-        verbose_name_plural = 'Профили курьеров'
+        verbose_name = 'Profile of courier'
+        verbose_name_plural = 'Profiles of couriers'
 
 
 class RestaurateurManager(UserManager):
@@ -172,8 +171,8 @@ class Restaurateur(User):
 
     class Meta:
         proxy = True
-        verbose_name = 'Ресторатор'
-        verbose_name_plural = 'Рестораторы'
+        verbose_name = 'Restaurateur'
+        verbose_name_plural = 'Restaurateurs'
 
     def save(self, *args, **kwargs):
         if not self.pk:
@@ -194,16 +193,16 @@ class RestaurateurProfile(models.Model):
     restaurants = models.ManyToManyField(
         'Restaurant',
         related_name='related_restaurants',
-        verbose_name='Рестораны',
+        verbose_name='Restaurants',
         blank=True
     )
 
     def __str__(self):
-        return f'Ресторатор {self.user.username}'
+        return f'Restaurateur {self.user.username}'
 
     class Meta:
-        verbose_name = 'Профиль ресторатора'
-        verbose_name_plural = 'Профили рестораторов'
+        verbose_name = 'Restaurateur profile'
+        verbose_name_plural = 'Restaurateur profiles'
 
 
 class Restaurant(models.Model):
@@ -215,37 +214,37 @@ class Restaurant(models.Model):
     )
     title = models.CharField(
         max_length=150,
-        verbose_name='Название'
+        verbose_name='Title'
     )
     address = models.CharField(
         max_length=255,
-        verbose_name='Адрес'
+        verbose_name='Address'
     )
     website = models.URLField(
-        verbose_name='Сайт',
+        verbose_name='Website',
         blank=True,
         null=True
     )
     CUISINE_TYPE = (
-        (0, 'Общий'),
-        (1, 'Европейская'),
-        (2, 'Азиатская'),
-        (3, 'Фаст Фуд')
+        (0, 'Common'),
+        (1, 'European'),
+        (2, 'Asian'),
+        (3, 'Fast food')
     )
     cuisine = models.IntegerField(
         choices=CUISINE_TYPE,
         default=0
     )
-    open_time = models.TimeField(verbose_name='Время открытия')
-    close_time = models.TimeField(verbose_name='Время закрытия')
+    open_time = models.TimeField(verbose_name='Open time')
+    close_time = models.TimeField(verbose_name='Close time')
     image = models.ImageField(
-        verbose_name='Изображение ресторана',
+        verbose_name='Picture of restaurant',
         blank=True
     )
     orders = models.ManyToManyField(
         'Order',
         related_name='orders_restaurants',
-        verbose_name='Заказы ресторана',
+        verbose_name='restaurant orders',
         blank=True,
     )
     slug = models.SlugField(max_length=255, blank=True)
@@ -258,8 +257,8 @@ class Restaurant(models.Model):
         return json.dumps(Dish.objects.filter(restaurant=self).values())
 
     class Meta:
-        verbose_name = 'Ресторан'
-        verbose_name_plural = 'Рестораны'
+        verbose_name = 'Restaurant'
+        verbose_name_plural = 'Restaurants'
         ordering = ['-title']
 
     def save(self, *args, **kwargs):
@@ -271,29 +270,29 @@ class Dish(models.Model):
     restaurant = models.ForeignKey(
         Restaurant,
         on_delete=models.CASCADE,
-        verbose_name='Ресторан',
+        verbose_name='restaurant',
         null=True,
         related_name='related_restaurant_dish'
     )
     title = models.CharField(
         max_length=255,
-        verbose_name='Название'
+        verbose_name='Title'
     )
     price = models.DecimalField(
         max_digits=6,
         decimal_places=2,
         null=True,
-        verbose_name='Цена'
+        verbose_name='price'
     )
     image = models.ImageField(
-        verbose_name='Изображение блюда',
+        verbose_name='dish image',
         blank=True
     )
     description = models.TextField(
         max_length=5000,
         blank=True,
         null=True,
-        verbose_name='Описание'
+        verbose_name='description'
     )
     slug_dish = models.SlugField(
         max_length=255,
@@ -302,8 +301,8 @@ class Dish(models.Model):
 
     class Meta:
         db_table = 'dish'
-        verbose_name = 'Блюдо'
-        verbose_name_plural = 'Блюда'
+        verbose_name = 'dish'
+        verbose_name_plural = 'dishes'
         ordering = ['-title']
 
     def save(self, *args, **kwargs):
@@ -318,89 +317,89 @@ class CartDish(models.Model):
     customer = models.ForeignKey(
         Customer,
         on_delete=models.CASCADE,
-        verbose_name='Покупатель'
+        verbose_name='customer'
     )
     cart = models.ForeignKey(
         'Cart',
         on_delete=models.CASCADE,
-        verbose_name='Корзина',
+        verbose_name='cart',
         related_name='related_dishes'
     )
     dish = models.ForeignKey(
         Dish,
         on_delete=models.CASCADE,
-        verbose_name='Блюдо',
+        verbose_name='dish',
         related_name='related_dish'
     )
     quantity = models.PositiveIntegerField(
         default=1,
-        verbose_name='Количество'
+        verbose_name='quantity'
     )
     final_price = models.DecimalField(
         max_digits=8,
         decimal_places=2,
-        verbose_name='Итоговая цена'
+        verbose_name='Total price'
     )
 
     def __str__(self):
-        return f'Блюдо: {self.dish.title} (для корзины)'
+        return f'Dish: {self.dish.title} (for cart)'
 
     def save(self, *args, **kwargs):
         self.final_price = self.quantity * self.dish.price
         super().save(*args, **kwargs)
 
     class Meta:
-        verbose_name = 'Блюдо корзины'
-        verbose_name_plural = 'Блюда корзины'
+        verbose_name = 'Cart dish'
+        verbose_name_plural = 'Cart dishes'
 
 
 class Order(models.Model):
     PAYMENT_CASH = 'cash'
     PAYMENT_CARD = 'card'
     PAYMENT_CHOICE = (
-        (PAYMENT_CASH, 'Наличные'),
-        (PAYMENT_CARD, 'Карта')
+        (PAYMENT_CASH, 'Cash'),
+        (PAYMENT_CARD, 'Card')
     )
     STATUS_NEW = 'new'
     STATUS_PAYED = 'payed'
     STATUS_COMPLETED = 'completed'
     STATUS_CHOICE = (
-        (STATUS_NEW, 'Новый заказ'),
-        (STATUS_PAYED, 'Заказ оплачен'),
-        (STATUS_COMPLETED, 'Доставлен')
+        (STATUS_NEW, 'New order'),
+        (STATUS_PAYED, 'Paid order'),
+        (STATUS_COMPLETED, 'Deliveried')
     )
     customer = models.ForeignKey(
         Customer,
         on_delete=models.CASCADE,
-        verbose_name='Покупатель',
+        verbose_name='customer',
         related_name='related_customer'
     )
     cart = models.ForeignKey(
         Cart,
         on_delete=models.CASCADE,
-        verbose_name='Корзина',
+        verbose_name='cart',
         related_name='related_cart',
         null=True,
         blank=True
     )
     first_name = models.CharField(
         max_length=255,
-        verbose_name='Имя',
+        verbose_name='name',
     )
     last_name = models.CharField(
         max_length=255,
-        verbose_name='Фамилия',
+        verbose_name='last name',
     )
     delivery_address = models.CharField(
         max_length=200,
-        verbose_name='Адрес доставки'
+        verbose_name='delivery address'
     )
     created_at = models.DateTimeField(
-        verbose_name='Дата размещения заказа',
+        verbose_name='date of order creation',
         auto_now_add=True,
     )
     delivery_datetime_all = models.DateTimeField(
-        verbose_name='Дата и время доставки заказа',
+        verbose_name='delivery datetime',
         default=None,
         null=True,
         blank=True
@@ -409,21 +408,21 @@ class Order(models.Model):
         max_length=100,
         choices=PAYMENT_CHOICE,
         default=PAYMENT_CASH,
-        verbose_name='Способ оплаты'
+        verbose_name='payment method'
     )
     status_order = models.CharField(
         max_length=255,
         choices=STATUS_CHOICE,
         default=STATUS_NEW,
-        verbose_name='Статус заказа'
+        verbose_name='status'
     )
 
     def __str__(self):
-        return f'Заказ №{self.id}'
+        return f'Order №{self.id}'
 
     class Meta:
-        verbose_name = 'Заказ'
-        verbose_name_plural = 'Заказы'
+        verbose_name = 'Order'
+        verbose_name_plural = 'Orders'
 
 
 class SubOrder(models.Model):
@@ -431,21 +430,21 @@ class SubOrder(models.Model):
     STATUS_DELIVERING = 'delivering'
     STATUS_COMPLETED = 'completed'
     STATUS_CHOICE = (
-        (STATUS_IN_RESTAURANT, 'Готовится'),
-        (STATUS_DELIVERING, 'Передан курьеру'),
-        (STATUS_COMPLETED, 'Доставлен')
+        (STATUS_IN_RESTAURANT, 'Cooking'),
+        (STATUS_DELIVERING, 'Handed over to the courier'),
+        (STATUS_COMPLETED, 'Delivered')
     )
     main_order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         related_name='related_main_order',
-        verbose_name='Заказ'
+        verbose_name='order'
     )
     restaurant = models.ForeignKey(
         Restaurant,
         on_delete=models.CASCADE,
         related_name='related_restaurant_suborder',
-        verbose_name='Ресторан подзаказа',
+        verbose_name='suborder restaurant',
         null=True
     )
     courier = models.ForeignKey(
@@ -456,7 +455,7 @@ class SubOrder(models.Model):
         blank=True,
     )
     delivery_datetime = models.DateTimeField(
-        verbose_name='Дата и время доставки подаказа',
+        verbose_name='suborder delivery datetime',
         blank=True,
         null=True
     )
@@ -464,18 +463,18 @@ class SubOrder(models.Model):
         max_length=255,
         choices=STATUS_CHOICE,
         default=STATUS_IN_RESTAURANT,
-        verbose_name='Статус подзаказа'
+        verbose_name='status suborder'
     )
     comment = models.TextField(
         blank=True,
-        verbose_name='Комментарий к подзаказу')
+        verbose_name='comment')
 
     def __str__(self):
-        return f'Подзаказ №{self.id}'
+        return f'suborder №{self.id}'
 
     class Meta:
-        verbose_name = 'Подзаказ'
-        verbose_name_plural = 'Подзаказы'
+        verbose_name = 'Suborder'
+        verbose_name_plural = 'Suborders'
 
 
 class Complaint(models.Model):
@@ -483,16 +482,16 @@ class Complaint(models.Model):
         Customer,
         on_delete=models.CASCADE,
         related_name='related_complaint_customer',
-        verbose_name='Покупатель'
+        verbose_name='customer'
     )
     order = models.ForeignKey(
         Order,
         on_delete=models.CASCADE,
         related_name='related_complaint_order',
-        verbose_name='Заказ'
+        verbose_name='order'
     )
-    text = models.TextField(verbose_name='Текст жалобы')
+    text = models.TextField(verbose_name='complain text')
 
     class Meta:
-        verbose_name = 'Жалоба'
-        verbose_name_plural = 'Жалобы'
+        verbose_name = 'Complaint'
+        verbose_name_plural = 'Complaints'

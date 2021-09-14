@@ -1,6 +1,6 @@
 from crud_rest.celery import app
 
-from .utilities import send_notification
+from delivery.utilities import send_notification
 
 
 @app.task

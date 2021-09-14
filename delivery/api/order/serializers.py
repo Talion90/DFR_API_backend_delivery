@@ -1,7 +1,7 @@
 from rest_framework import serializers
 
-from ..models import Order, SubOrder, CartDish, Complaint
-from delivery.cart.serializers import CartOrderSerializer, CartDishSerializer
+from delivery.models import Order, SubOrder, CartDish, Complaint
+from delivery.api.cart.serializers import CartOrderSerializer, CartDishSerializer
 
 
 class OrderExtraSerializer(serializers.ModelSerializer):

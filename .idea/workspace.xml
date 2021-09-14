@@ -4,9 +4,47 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="add readme">
+    <list default="true" id="8d6728b3-cdb6-40da-a03e-4c0e018e6b04" name="Default Changelist" comment="redact docker-compose">
+      <change afterPath="$PROJECT_DIR$/delivery/api/restaurant/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery/templates/email/mail_body_order_complete.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/delivery/templates/email/mail_subject_order_complete.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.dev" beforeDir="false" afterPath="$PROJECT_DIR$/.env.dev" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud_rest/asgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_rest/asgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud_rest/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_rest/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud_rest/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_rest/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/crud_rest/wsgi.py" beforeDir="false" afterPath="$PROJECT_DIR$/crud_rest/wsgi.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/cart/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/cart/router.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/cart/router.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/cart/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/cart/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/cart/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/cart/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/cart/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/order/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/order/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/order/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/order/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/order/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/order/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/order/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/permissions.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/permissions.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/restaurant/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/cart/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/restaurant/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/restaurant/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/restaurant/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/restaurant/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/profiles/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/service.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/service.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/tasks.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/tasks.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_body_delivering.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/templates/email/mail_body_delivering.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_body_new_order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/templates/email/mail_body_new_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_body_order_complete.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/order/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_subject_delivering.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/templates/email/mail_subject_delivering.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_subject_new_order.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/templates/email/mail_subject_new_order.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/templates/email/mail_subject_order_complete.txt" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/profiles/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/tests/test_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/tests/test_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/tests/test_setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/tests/test_setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/tests/test_view.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/tests/test_view.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/profiles/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/utilities.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/utilities.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/delivery/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/delivery/api/profiles/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +53,13 @@
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -35,9 +80,16 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="settings.editor.selected.configurable" value="reference.settingsDialog.application.dockerMachine" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\user\PycharmProjects\rest_apps\djangoProject_delivery_rest\delivery\api\profiles" />
+      <recent name="C:\Users\user\PycharmProjects\rest_apps\djangoProject_delivery_rest\delivery\api" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="djangoProject_delivery_rest" type="Python.DjangoServer" factoryName="Django server">
@@ -79,7 +131,7 @@
       <workItem from="1631300510453" duration="194000" />
       <workItem from="1631301025154" duration="264000" />
       <workItem from="1631302546757" duration="111000" />
-      <workItem from="1631340312990" duration="1084000" />
+      <workItem from="1631340312990" duration="1707000" />
     </task>
     <task id="LOCAL-00001" summary="Init project">
       <created>1631040146365</created>
@@ -109,7 +161,14 @@
       <option name="project" value="LOCAL" />
       <updated>1631299921201</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="redact docker-compose">
+      <created>1631341555020</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1631341555021</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -132,6 +191,7 @@
     <MESSAGE value="Add dockerfile and docker-compose file" />
     <MESSAGE value="add requirements" />
     <MESSAGE value="add readme" />
-    <option name="LAST_COMMIT_MESSAGE" value="add readme" />
+    <MESSAGE value="redact docker-compose" />
+    <option name="LAST_COMMIT_MESSAGE" value="redact docker-compose" />
   </component>
 </project>

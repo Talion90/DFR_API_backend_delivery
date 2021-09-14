@@ -1,9 +1,10 @@
 from django.urls import path, include
 
-from delivery.views import UserListAPIView, CourierDetailAPIView, CustomerDetailAPIView, RestaurateurDetailAPIView
-from delivery.restaurant.views import RestaurantCreateAPIView, RestaurantDetailAPIView, DishAPIList, DishDetailAPIView,\
-    RestaurantListAPIView
-from delivery.order.views import CustomerOrderView, ComplaintAPIView, CheckoutView
+from delivery.api.profiles.views import UserListAPIView, CourierDetailAPIView, CustomerDetailAPIView, \
+    RestaurateurDetailAPIView
+from delivery.api.restaurant.views import RestaurantCreateAPIView, RestaurantDetailAPIView, DishAPIList, \
+    DishDetailAPIView, RestaurantListAPIView
+from delivery.api.order.views import CustomerOrderView, ComplaintAPIView, CheckoutView
 
 app_name = 'delivery'
 urlpatterns = [

@@ -28,7 +28,7 @@ class DishAdmin(admin.ModelAdmin):
         for rec in queryset:
             rec.price = f / 2
             rec.save()
-        modeladmin.message_user(request, 'Действие выполнено')
+        modeladmin.message_user(request, 'Action done')
 
 
 @admin.register(CartDish)

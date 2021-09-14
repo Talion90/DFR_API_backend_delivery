@@ -3,7 +3,7 @@ from rest_framework import permissions
 
 class IsRestaurantOwner(permissions.BasePermission):
 
-    message = 'Вы должны быть администратором ресторана'
+    message = 'You must be a restaurateur of restaurant'
 
     def has_permission(self, request, view):
         if not request.user.is_anonymous:
@@ -14,7 +14,7 @@ class IsRestaurantOwner(permissions.BasePermission):
 
 class IsCourier(permissions.BasePermission):
 
-    message = 'Вы должны быть курьером'
+    message = 'You must be a courier'
 
     def has_permission(self, request, view):
         if not request.user.is_anonymous:
@@ -25,7 +25,7 @@ class IsCourier(permissions.BasePermission):
 
 class IsCustomer(permissions.BasePermission):
 
-    message = 'Вы должны быть владельцем и покупателем'
+    message = 'You have to be the owner'
 
     def has_permission(self, request, view):
         if not request.user.is_anonymous:

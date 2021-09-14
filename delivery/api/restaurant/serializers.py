@@ -1,6 +1,6 @@
 from rest_framework import serializers
 
-from ..models import Restaurant, Dish
+from delivery.models import Restaurant, Dish
 
 
 class RestaurantSerializer(serializers.ModelSerializer):
@@ -19,7 +19,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
         try:
             restaurateur = obj.restaurateur.user.username
         except AttributeError:
-            return str({'restaurateur': 'Ресторатор не назначен'})
+            return str({'restaurateur': 'restaurateur not identified'})
         return str(restaurateur)
 
     @staticmethod
@@ -27,7 +27,7 @@ class RestaurantSerializer(serializers.ModelSerializer):
         try:
             phone = obj.restaurateur.user.phone
         except AttributeError:
-            return str({'phone': 'Ресторатор не назначен'})
+            return str({'phone': 'restaurateur not identified'})
         return str(phone)
 
     class Meta:

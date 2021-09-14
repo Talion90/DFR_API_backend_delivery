@@ -1,7 +1,8 @@
 from rest_framework import status
 
-from .test_setup import TestSetUp
-from ..models import User, Customer, CustomerProfile, Cart, Courier, CourierProfile, Restaurateur, RestaurateurProfile
+from delivery.tests.test_setup import TestSetUp
+from delivery.models import User, Customer, CustomerProfile, Cart, Courier, CourierProfile, Restaurateur, \
+    RestaurateurProfile
 
 
 class TestRegistrationModels(TestSetUp):

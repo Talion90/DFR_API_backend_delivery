@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
 
-from delivery.order.views import SubOrderViewSet
+from delivery.api.order.views import SubOrderViewSet
 
 suborder_list = SubOrderViewSet.as_view({
     'get': 'list',

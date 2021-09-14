@@ -1,9 +1,9 @@
 from rest_framework.generics import ListCreateAPIView, RetrieveUpdateDestroyAPIView, ListAPIView, CreateAPIView
 from rest_framework import permissions
 
-from .serializers import RestaurantSerializer, DishSerializer
-from ..models import Restaurant, Dish
-from ..permissions import IsRestaurantOwner
+from delivery.api.restaurant.serializers import RestaurantSerializer, DishSerializer
+from delivery.models import Restaurant, Dish
+from delivery.permissions import IsRestaurantOwner
 
 
 class RestaurantListAPIView(ListAPIView):

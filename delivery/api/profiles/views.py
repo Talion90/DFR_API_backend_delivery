@@ -2,8 +2,8 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework import generics
 
 from delivery.models import User, CourierProfile, CustomerProfile, RestaurateurProfile
-from delivery.serializers import UserSerializer, CourierProfileDetailSerializer, CustomerProfileDetailSerializer, \
-    RestaurateurProfileDetailSerializer
+from delivery.api.profiles.serializers import UserSerializer, CourierProfileDetailSerializer, \
+    CustomerProfileDetailSerializer, RestaurateurProfileDetailSerializer
 from delivery.permissions import IsCourier, IsCustomer, IsRestaurantOwner
 
 

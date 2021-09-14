@@ -7,12 +7,12 @@ from rest_framework import generics, status, viewsets, response, permissions
 from rest_framework.decorators import action
 from rest_framework.views import APIView
 
-from ..models import Order, Customer, Cart, SubOrder, CourierProfile
-from .serializers import OrderSerializer, OrderExtraSerializer, SubOrderSerializer, ComplaintSerializer, \
-    CheckoutSerializer
-from ..permissions import IsCourier, IsCustomer
-from ..tasks import send_complete_status, send_delivery_status
-from ..utilities import get_delivery_datetime
+from delivery.models import Order, Customer, Cart, SubOrder, CourierProfile
+from delivery.api.order.serializers import OrderSerializer, OrderExtraSerializer, SubOrderSerializer, \
+    ComplaintSerializer, CheckoutSerializer
+from delivery.permissions import IsCourier, IsCustomer
+from delivery.tasks import send_complete_status, send_delivery_status
+from delivery.utilities import get_delivery_datetime
 
 
 class SubOrderViewSet(viewsets.ModelViewSet):
@@ -85,8 +85,8 @@ class SubOrderViewSet(viewsets.ModelViewSet):
             suborder.courier = request.user
             suborder.save()
             courier_profile.suborders.add(suborder)
-            return response.Response({'Курьер заказа': f'{suborder.courier}'}, status=status.HTTP_200_OK)
-        return response.Response({'detail': 'Заказ уже принят другим курьером'}, status=status.HTTP_200_OK)
+            return response.Response({'Courier of suborder': f'{suborder.courier}'}, status=status.HTTP_200_OK)
+        return response.Response({'detail': 'Suborder has been assigned by another courier'}, status=status.HTTP_200_OK)
 
 
 class CustomerOrderView(generics.ListCreateAPIView):
@@ -143,7 +143,3 @@ class CheckoutView(APIView):
         )
         request.serializer.client_secret = intent.client_secret
         return response.Response(self, request, *args, **kwargs)
-
-    # @transaction.atomic
-    # def post(self, request, *args, **kwargs):
-    #     return self.create(request, *args, **kwargs)

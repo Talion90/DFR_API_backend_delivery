@@ -6,7 +6,7 @@ from delivery.models import User, Restaurant, RestaurateurProfile, Dish, CartDis
 class TestSetUp(APITestCase):
 
     def setUp(self):
-        self.registration_url = 'http://127.0.0.1:8000/auth/users/'
+        REGISTRATION_URL = 'http://127.0.0.1:8000/auth/users/'
         self.user_data = {
             'username': 'Aragorn',
             'password': 'Qwerty24',
@@ -67,7 +67,6 @@ class TestSetUp(APITestCase):
             type=User.Types.CUSTOMER
         )
         self.test_cart_dish = CartDish.objects.create(
-
         )
 
         return super().setUp()

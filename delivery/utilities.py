@@ -18,8 +18,8 @@ def send_notification(kind, **kwargs):
             'dishes': kwargs['dishes'],
             'host': host,
         }
-        subject = render_to_string('email/mail_subject_new_order.txt')
-        body_text = render_to_string('email/mail_body_new_order.txt', context=context)
+        subject = render_to_string('email/mail_subject_new_order.html')
+        body_text = render_to_string('email/mail_body_new_order.html', context=context)
     elif kind == 'delivering':
         context = {
             'customer_username': kwargs['customer_username'],
@@ -28,16 +28,16 @@ def send_notification(kind, **kwargs):
             'courier_phone': kwargs['courier_phone'],
             'host': host,
         }
-        subject = render_to_string('email/mail_subject_delivering.txt')
-        body_text = render_to_string('email/mail_body_delivering.txt', context=context)
+        subject = render_to_string('email/mail_subject_delivering.html')
+        body_text = render_to_string('email/mail_body_delivering.html', context=context)
     elif kind == 'complete':
         context = {
             'customer_username': kwargs['customer_username'],
             'suborder_id': kwargs['order'],
             'host': host,
         }
-        subject = render_to_string('email/mail_subject_order_complete.txt', context)
-        body_text = render_to_string('email/mail_body_order_complete.txt', context=context)
+        subject = render_to_string('email/mail_subject_order_complete.html', context)
+        body_text = render_to_string('email/mail_body_order_complete.html', context=context)
 
     send_mail(
         subject,
