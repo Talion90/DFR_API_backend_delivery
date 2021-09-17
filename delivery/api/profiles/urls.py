@@ -20,6 +20,6 @@ urlpatterns = [
     path('customer/<int:pk>/orders/', CustomerOrderView.as_view(), name='customer_order'),
     path('customer/<int:pk>/', CustomerDetailAPIView.as_view(), name='profile_customer'),
     path('users/', UserListAPIView.as_view(), name='users_list'),
-    path('suborder/', include('delivery.order.urls'), name='suborder'),
-    path('', include('delivery.cart.router'), name='cart'),
+    path('suborder/', include('delivery.api.order.urls'), name='suborder'),
+    path('', include('delivery.api.cart.router'), name='cart'),
 ]

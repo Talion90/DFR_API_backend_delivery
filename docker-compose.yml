@@ -12,9 +12,7 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile
-    command: bash -c "python /usr/src/app/manage.py makemigrations --noinput &&
-                      python /usr/src/app/manage.py migrate --noinput &&
-                      python /usr/src/app/manage.py runserver 0.0.0.0:8000"
+    command: bash "./prestart.sh"
     volumes:
       - .:/usr/src/app/
     env_file:
@@ -26,6 +24,8 @@ services:
 
   redis:
     image: "redis:alpine"
+    ports:
+      - "6379:6379"
   celery:
     build: .
     command: celery -A crud_rest worker -l INFO
@@ -39,9 +39,9 @@ services:
       - django
   dashboard:
     build: .
-    command: celery flower --port=5566
+    command: celery flower --port=5555
     ports:
-      - 5555:5555
+      - "5555:5555"
     env_file:
       - ./.env.dev
     depends_on:
