@@ -9,10 +9,8 @@ from crud_rest.yasg import urlpatterns as doc_urls
 urlpatterns = [
     path('admin/', admin.site.urls),
 
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-
     path('api/', include('delivery.api.profiles.urls')),
+    path('', include('delivery.authentication.urls', namespace='authentication')),
 ]
 
 urlpatterns += doc_urls

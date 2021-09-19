@@ -1,36 +1,9 @@
 import json
 
-from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.models import UserManager
 from django.db import models
 from pytils.translit import slugify
-
-
-class User(AbstractUser):
-
-    objects = UserManager()
-
-    class Types(models.TextChoices):
-        CUSTOMER = 'CUSTOMER', 'Customer'
-        RESTAURATEUR = 'RESTAURATEUR', 'Restaurateur'
-        COURIER = 'COURIER', 'Courier'
-
-    type = models.CharField(
-        max_length=50,
-        choices=Types.choices,
-        blank=True,
-        default=None,
-        null=True,
-        verbose_name="User type"
-    )
-    phone = models.CharField(
-        max_length=20,
-        verbose_name='Phone number'
-    )
-
-    class Meta:
-        verbose_name = 'User'
-        verbose_name_plural = 'Users'
+from delivery.authentication.models import User
 
 
 class CustomerManager(UserManager):

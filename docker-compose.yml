@@ -39,7 +39,7 @@ services:
       - django
   dashboard:
     build: .
-    command: celery flower --port=5555
+    command: celery -A crud_rest flower
     ports:
       - "5555:5555"
     env_file:

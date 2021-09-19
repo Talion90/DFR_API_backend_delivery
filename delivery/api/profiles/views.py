@@ -2,15 +2,9 @@ from rest_framework.permissions import IsAdminUser
 from rest_framework import generics
 
 from delivery.models import User, CourierProfile, CustomerProfile, RestaurateurProfile
-from delivery.api.profiles.serializers import UserSerializer, CourierProfileDetailSerializer, \
+from delivery.api.profiles.serializers import CourierProfileDetailSerializer, \
     CustomerProfileDetailSerializer, RestaurateurProfileDetailSerializer
 from delivery.permissions import IsCourier, IsCustomer, IsRestaurantOwner
-
-
-class UserListAPIView(generics.ListAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = (IsAdminUser, )
 
 
 class CourierDetailAPIView(generics.RetrieveUpdateAPIView):
